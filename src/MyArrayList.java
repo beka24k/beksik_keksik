@@ -2,14 +2,13 @@ public class MyArrayList<T> implements Mylist<T> {
     private T[] arr;
     private int size;
 
-    MyArrayList(T[] arr, int size) {
+    MyArrayList(T[] arr) {
         this.arr = arr;
-        this.size = size;
+        this.size = arr.length;
     }
-
     @Override
     public int size() {
-        return size-1;
+        return size;
     }
 
     @Override
@@ -25,7 +24,9 @@ public class MyArrayList<T> implements Mylist<T> {
     public void add(T item) {
         if (size==arr.length) {
             arrayMakeBigger();
-        }arr[size-1] = item;
+        }
+
+        arr[size] = item;
         size++;
     }
 
@@ -33,23 +34,21 @@ public class MyArrayList<T> implements Mylist<T> {
     public void add(T item, int index) {
         checkIndex(index);
         arrayMakeBigger();
-        for (int i = arr.length / 2 - 1; i > index; i--) {
+        for (int i = size; i >= index; i--) {
             arr[i + 1] = arr[i];
         }
         arr[index] = item;
-        size++;
+
     }
 
     private void arrayMakeBigger() {
         T[] arr2 = (T[]) new Object[arr.length * 2];
         for (int i = 0; i < arr.length; i++) {
             arr2[i] = (T) arr[i];
-
         }
-
-        arr=arr2;
+        arr=arr2;size++;
     }
-    public Object get(int index) {
+    public T get(int index) {
         checkIndex(index);
         return arr[index];
     }
