@@ -31,7 +31,9 @@ public class MyArrayList<T> implements Mylist<T> {
     @Override
     public void add(T item, int index) {
         checkIndex(index);
-        arrayMakeBigger();
+        if (size==arr.length) {
+            arrayMakeBigger();
+        }
         for (int i = size; i >= index; i--) {
             arr[i + 1] = arr[i];
         }
@@ -76,7 +78,7 @@ public class MyArrayList<T> implements Mylist<T> {
         }
         for(int i=0;i<size;i++){
             arr[i]=newArr[i];
-        }
+        }size--;
     }
 
     @Override
@@ -113,12 +115,12 @@ public class MyArrayList<T> implements Mylist<T> {
     @Override
     public void sort() {
         if (arr[0] instanceof Integer) {
-            int[] temp = new int[arr.length];
-            for (int i = 0; i < arr.length; i++) {
+            int[] temp = new int[size];
+            for (int i = 0; i < size; i++) {
                 temp[i] = (Integer) arr[i];
             }
             mergeSort(temp, 0, temp.length - 1);
-            for (int i = 0; i < arr.length; i++) {
+            for (int i = 0; i < size; i++) {
                 arr[i] = (T) (Integer) temp[i];
             }
         } else {
