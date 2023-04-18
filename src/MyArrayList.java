@@ -25,9 +25,7 @@ public class MyArrayList<T> implements Mylist<T> {
         if (size==arr.length) {
             arrayMakeBigger();
         }
-
-        arr[size] = item;
-        size++;
+        arr[size++] = item;
     }
 
     @Override
@@ -37,7 +35,7 @@ public class MyArrayList<T> implements Mylist<T> {
         for (int i = size; i >= index; i--) {
             arr[i + 1] = arr[i];
         }
-        arr[index] = item;
+        arr[index] = item;size++;
 
     }
 
@@ -46,7 +44,7 @@ public class MyArrayList<T> implements Mylist<T> {
         for (int i = 0; i < arr.length; i++) {
             arr2[i] = (T) arr[i];
         }
-        arr=arr2;size++;
+        arr=arr2;
     }
     public T get(int index) {
         checkIndex(index);

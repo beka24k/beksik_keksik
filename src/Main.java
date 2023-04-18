@@ -3,12 +3,10 @@ public class Main {
         System.out.println("Hello world!");
         Integer[] arr = {5, 8, 5, 9, 1};
         MyArrayList<Integer> mc = new MyArrayList<>(arr);
-        mc.add(88,3);
-        mc.add(48,2);
-       mc.add(123);
-       mc.add(124);
-       mc.add(1234,6);
-       mc.add(564);
+        mc.add(45);
+        mc.add(85575);
+        mc.add(74,5);
+
         if(mc.contains(48)) System.out.println("lksd");
         for (int i = 0; i < mc.size(); i++) {
             System.out.print(mc.get(i) + " ");
