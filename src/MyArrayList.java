@@ -1,8 +1,10 @@
-public class MyArrayList implements Mylist {
-    private Object[] arr;
+public class MyArrayList<T> implements Mylist<T> {
+    private T[] arr;
+    private int size;
 
-    MyArrayList(Object[] arr) {
+    MyArrayList(T[] arr, int size) {
         this.arr = arr;
+        this.size = size;
     }
 
     @Override
@@ -20,36 +22,42 @@ public class MyArrayList implements Mylist {
         return false;
     }
 
-    @Override
-    public void add(Object item) {
+
+    public void add(T item) {
         arr = arrayMakeBigger(arr);
-        arr[arr.length / 2] = item;
+        arr[size+1] = item;
     }
 
     @Override
-    public void add(Object item, int index) {
-
+    public void add(T item, int index) {
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException();
+        }
+        arr = arrayMakeBigger(arr);
+        for (int i = arr.length/2 - 1; i > index; i--) {
+            arr[i + 1] = arr[i];
+        }
+        arr[index] = item;
     }
-
-    private Object[] arrayMakeBigger(Object[] arr) {
-        Object[] arr2 = new Object[arr.length * 2];
+    private T[] arrayMakeBigger(Object[] arr) {
+        T[] arr2 = (T[]) new Object[arr.length * 2];
         for (int i = 0; i < arr.length; i++) {
-            arr2[i] = arr[i];
+            arr2[i] = (T) arr[i];
         }
         return arr2;
     }
 
     public Object get(int index) {
-        if (arr.length <= index) {
-            System.err.println("Index out of bounds");
-            return 0;
-        } else {
+            checkIndex(index);
             return arr[index];
         }
+    private void checkIndex(int index){
+        if(index < 0 || index>=size){
+            throw new IndexOutOfBoundsException();
+        }
     }
-
     @Override
-    public boolean remove(Object item) {
+    public boolean remove(T item) {
         return true;
     }
 
@@ -63,8 +71,8 @@ public class MyArrayList implements Mylist {
     }
 
     @Override
-    public Object remove(int index) {
-        Object[] newArr = new Object[arr.length - 1];
+    public T remove(int index) {
+        T[] newArr =(T[]) new Object[arr.length - 1];
         int j = 0;
         for (int i = 0; i < arr.length; i++) {
             if (i == index) {
@@ -74,7 +82,7 @@ public class MyArrayList implements Mylist {
             j++;
         }
         arr = newArr;
-        return arr;
+        return (T) arr;
     }
 
     @Override
@@ -90,13 +98,13 @@ public class MyArrayList implements Mylist {
     @Override
     public void sort() {
         if (arr[0] instanceof Integer) {
-            int[] temp = new int[arr.length];
+            int[] temp =   new int[arr.length];
             for (int i = 0; i < arr.length; i++) {
                 temp[i] = (Integer) arr[i];
             }
             mergeSort(temp, 0, temp.length - 1);
             for (int i = 0; i < arr.length; i++) {
-                arr[i] = temp[i];
+             arr[i] =(T)(Integer) temp[i];
             }
         } else {
             System.out.println("bobo is not a Integer");
