@@ -4,7 +4,7 @@ public class MyArrayList<T> implements Mylist<T> {
 
     MyArrayList(T[] arr, int size) {
         this.arr = arr;
-        this.size = size;
+        this.size = size-1;
     }
 
     @Override
@@ -92,15 +92,29 @@ public class MyArrayList<T> implements Mylist<T> {
             if (arr[i]==o){
                 return i;
             }
-            System.err.println("This element is not in array");
         }
-        return 0;
+        System.err.println("This element is not in array");
+        return -1;
     }
 
     @Override
     public int lastIndexOf(Object o) {
-        return 0;
+        if (o == null) {
+            for (int i = size - 1; i >= 0; i--) {
+                if (arr[i] == null) {
+                    return i;
+                }
+            }
+        } else {
+            for (int i = size - 1; i >= 0; i--) {
+                if (o.equals(arr[i])) {
+                    return i;
+                }
+            }
+        }
+        return -1;
     }
+
 
     @Override
     public void sort() {
