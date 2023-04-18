@@ -87,6 +87,13 @@ public class MyArrayList<T> implements Mylist<T> {
 
     @Override
     public int indexOf(Object o) {
+
+        for(int i=0;i<arr.length;i++){
+            if (arr[i]==o){
+                return i;
+            }
+            System.err.println("This element is not in array");
+        }
         return 0;
     }
 
