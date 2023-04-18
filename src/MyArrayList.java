@@ -12,6 +12,11 @@ public class MyArrayList implements Mylist {
 
     @Override
     public boolean contains(Object o) {
+        for (Object value : arr) {
+            if (o.equals(value)) {
+                return true;
+            }
+        }
         return false;
     }
 
@@ -85,12 +90,13 @@ public class MyArrayList implements Mylist {
     @Override
     public void sort() {
         if (arr[0] instanceof Integer) {
-            int[] temp=new int[arr.length];
-            for (int i=0;i< arr.length;i++){
-                temp[i]=(Integer) arr[i];
-            }mergeSort(temp,0,temp.length-1);
-            for (int i=0;i< arr.length;i++){
-                arr[i]=temp[i];
+            int[] temp = new int[arr.length];
+            for (int i = 0; i < arr.length; i++) {
+                temp[i] = (Integer) arr[i];
+            }
+            mergeSort(temp, 0, temp.length - 1);
+            for (int i = 0; i < arr.length; i++) {
+                arr[i] = temp[i];
             }
         } else {
             System.out.println("bobo is not a Integer");
