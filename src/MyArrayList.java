@@ -4,12 +4,12 @@ public class MyArrayList<T> implements Mylist<T> {
 
     MyArrayList(T[] arr, int size) {
         this.arr = arr;
-        this.size = size - 1;
+        this.size = size;
     }
 
     @Override
     public int size() {
-        return arr.length;
+        return size-1;
     }
 
     @Override
@@ -22,33 +22,33 @@ public class MyArrayList<T> implements Mylist<T> {
         return false;
     }
 
-
     public void add(T item) {
-        if (size!=arr.length) {
-            arr = arrayMakeBigger(arr);
-        }arr[size + 1] = item;
+        if (size==arr.length) {
+            arrayMakeBigger();
+        }arr[size-1] = item;
+        size++;
     }
 
     @Override
     public void add(T item, int index) {
-        if (index < 0 || index > size) {
-            throw new IndexOutOfBoundsException();
-        }
-        arr = arrayMakeBigger(arr);
+        checkIndex(index);
+        arrayMakeBigger();
         for (int i = arr.length / 2 - 1; i > index; i--) {
             arr[i + 1] = arr[i];
         }
         arr[index] = item;
+        size++;
     }
 
-    private T[] arrayMakeBigger(Object[] arr) {
+    private void arrayMakeBigger() {
         T[] arr2 = (T[]) new Object[arr.length * 2];
         for (int i = 0; i < arr.length; i++) {
             arr2[i] = (T) arr[i];
-        }
-        return arr2;
-    }
 
+        }
+
+        arr=arr2;
+    }
     public Object get(int index) {
         checkIndex(index);
         return arr[index];
@@ -62,12 +62,13 @@ public class MyArrayList<T> implements Mylist<T> {
 
     @Override
     public boolean remove(T item) {
+        remove2(indexOf(item));
         return true;
     }
     @Override
-    public T remove(int index) {
+    public void remove2(int index) {
         checkIndex(index);
-        T[] newArr = (T[]) new Object[arr.length - 1];
+        T[] newArr = (T[]) new Object[arr.length];
         int j = 0;
         for (int i = 0; i < arr.length; i++) {
             if (i == index) {
@@ -76,15 +77,16 @@ public class MyArrayList<T> implements Mylist<T> {
             newArr[j] = arr[i];
             j++;
         }
-        arr = newArr;
-        return (T) arr;
+        for(int i=0;i<size;i++){
+            arr[i]=newArr[i];
+        }
     }
 
     @Override
     public int indexOf(Object o) {
 
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == o) {
+        for (int i = 0; i < size; i++) {
+            if (arr[i] != null && arr[i].equals(o)) {
                 return i;
             }
         }
