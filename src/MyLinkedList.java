@@ -131,31 +131,51 @@ public class MyLinkedList<T> implements Mylist<T> {
 
     @Override
     public int indexOf(Object o) {
-        MyNode cur=head;
-        for(int i=0;i<size;i++){
-            if(cur.data.equals(o)){
+        MyNode cur = head;
+        for (int i = 0; i < size; i++) {
+            if (cur.data.equals(o)) {
                 return i;
             }
-            cur=cur.next;
-        }System.err.println("That object dont exist");
+            cur = cur.next;
+        }
+        System.err.println("That object dont exist");
         return -1;
     }
 
     @Override
     public int lastIndexOf(Object o) {
-        MyNode cur=tail;
-        int counter=size;
-        for(int i=size-1;i>=0;i--){
-            if(cur.data.equals(o)){
+        MyNode cur = tail;
+        int counter = size;
+        for (int i = size - 1; i >= 0; i--) {
+            if (cur.data.equals(o)) {
                 return i;
             }
-            cur=cur.prev;
+            cur = cur.prev;
 
-        }System.err.println("That object dont exist");
+        }
+        System.err.println("That object dont exist");
         return -1;
     }
+
     @Override
     public void sort() {
-
+        if (size <= 1) {
+            return;
+        }
+        boolean swapped;
+        do {
+            swapped = false;
+            MyNode curr = head;
+            while (curr.next != null) {
+                if (((Comparable<T>) curr.data).compareTo(curr.next.data) > 0) {
+                    // Swap elements
+                    T temp = curr.data;
+                    curr.data = curr.next.data;
+                    curr.next.data = temp;
+                    swapped = true;
+                }
+                curr = curr.next;
+            }
+        } while (swapped);
     }
 }
