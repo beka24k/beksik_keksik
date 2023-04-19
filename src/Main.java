@@ -16,8 +16,10 @@ public class Main {
         linkedList.add(15);
         linkedList.add(45);
         linkedList.add(78);
+        linkedList.add(15);
         linkedList.add(98);
         System.out.println(linkedList.indexOf(98));
+        System.out.println(linkedList.lastIndexOf(15));
         for(int i=0;i<linkedList.size();i++){
             System.out.print(linkedList.get(i)+" ");
         }

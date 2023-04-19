@@ -132,11 +132,9 @@ public class MyLinkedList<T> implements Mylist<T> {
     @Override
     public int indexOf(Object o) {
         MyNode cur=head;
-        int counter=0;
         for(int i=0;i<size;i++){
-            counter++;
-            if(cur.data.equals(0)){
-                return counter;
+            if(cur.data.equals(o)){
+                return i;
             }
             cur=cur.next;
         }System.err.println("That object dont exist");
@@ -145,14 +143,14 @@ public class MyLinkedList<T> implements Mylist<T> {
 
     @Override
     public int lastIndexOf(Object o) {
-        MyNode cur=head;
+        MyNode cur=tail;
         int counter=size;
-        for(int i=size-1;i>=0;i++){
-            counter--;
-            if(cur.data.equals(0)){
-                return counter;
+        for(int i=size-1;i>=0;i--){
+            if(cur.data.equals(o)){
+                return i;
             }
-            cur=cur.next;
+            cur=cur.prev;
+
         }System.err.println("That object dont exist");
         return -1;
     }
