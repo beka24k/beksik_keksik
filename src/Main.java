@@ -20,6 +20,7 @@ public class Main {
         linkedList.add(98);
         System.out.println(linkedList.indexOf(98));
         System.out.println(linkedList.lastIndexOf(15));
+        linkedList.sort();
         for(int i=0;i<linkedList.size();i++){
             System.out.print(linkedList.get(i)+" ");
         }
