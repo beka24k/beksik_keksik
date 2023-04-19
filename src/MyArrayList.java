@@ -71,7 +71,7 @@ public class MyArrayList<T> implements Mylist<T> {
     Removes all of the elements from this list.
 
     */
-    MyArrayList(T[] arr) {
+    MyArrayList(T[] arr) {//constructor
         this.arr = arr;
         this.size = arr.length;
     }
@@ -90,9 +90,9 @@ public class MyArrayList<T> implements Mylist<T> {
         }
         return false;
     }
-
+    @Override
     public void add(T item) {
-        if (size == arr.length) {
+        if (size == arr.length) {//for perfomance
             arrayMakeBigger();
         }
         arr[size++] = item;
