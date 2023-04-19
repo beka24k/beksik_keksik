@@ -3,27 +3,24 @@ public class Main {
         System.out.println("Hello world!");
         Integer[] arr = {5, 8, 5, 9, 1};
         MyArrayList<Integer> mc = new MyArrayList<>(arr);
+        System.out.println(mc.size());
         mc.add(45);
         mc.add(85575);
         mc.add(74,5);
-        System.out.println(mc.size());
-        if(mc.contains(48)) System.out.println("lksd");
+        if(mc.contains(45)) System.out.print("lksd");
+        int temp=mc.removed(3);
+        if(mc.remove(1)) System.out.println("hey correct");
         for (int i = 0; i < mc.size(); i++) {
             System.out.print(mc.get(i) + " ");
 
         }
-    MyLinkedList linkedList=new MyLinkedList();
-        linkedList.add(15);
-        linkedList.add(45);
-        linkedList.add(78);
-        linkedList.add(15);
-        linkedList.add(98);
-        System.out.println(linkedList.indexOf(98));
-        System.out.println(linkedList.lastIndexOf(15));
-        linkedList.sort();
+        System.out.println(mc.size());
+        mc.clear();
+        System.out.println(mc.size());
+        for (int i = 0; i < mc.size(); i++) {
+            System.out.print(mc.get(i) + " ");
 
-        for(int i=0;i<linkedList.size();i++){
-            System.out.print(linkedList.get(i)+" ");
         }
+
     }
 }
