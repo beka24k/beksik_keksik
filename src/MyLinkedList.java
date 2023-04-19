@@ -131,15 +131,31 @@ public class MyLinkedList<T> implements Mylist<T> {
 
     @Override
     public int indexOf(Object o) {
-
-        return 0;
+        MyNode cur=head;
+        int counter=0;
+        for(int i=0;i<size;i++){
+            counter++;
+            if(cur.data.equals(0)){
+                return counter;
+            }
+            cur=cur.next;
+        }System.err.println("That object dont exist");
+        return -1;
     }
 
     @Override
     public int lastIndexOf(Object o) {
-        return 0;
+        MyNode cur=head;
+        int counter=size;
+        for(int i=size-1;i>=0;i++){
+            counter--;
+            if(cur.data.equals(0)){
+                return counter;
+            }
+            cur=cur.next;
+        }System.err.println("That object dont exist");
+        return -1;
     }
-
     @Override
     public void sort() {
 
