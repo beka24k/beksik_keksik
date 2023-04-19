@@ -65,12 +65,14 @@ public class MyArrayList<T> implements Mylist<T> {
         return true;
     }
     @Override
-    public void remove2(int index) {
+    public T remove2(int index) {
         checkIndex(index);
+        T temp=arr[0];
         T[] newArr = (T[]) new Object[arr.length];
         int j = 0;
         for (int i = 0; i < arr.length; i++) {
             if (i == index) {
+                temp=arr[index];
                 continue;
             }
             newArr[j] = arr[i];
@@ -79,6 +81,7 @@ public class MyArrayList<T> implements Mylist<T> {
         for(int i=0;i<size;i++){
             arr[i]=newArr[i];
         }size--;
+        return temp;
     }
 
     @Override
@@ -127,6 +130,12 @@ public class MyArrayList<T> implements Mylist<T> {
             System.out.println("bobo is not a Integer");
         }
 
+    }
+
+    @Override
+    public void clear(){
+        this.arr = (T[]) new Object[5];
+        this.size = 0;
     }
 
     private static void mergeSort(int[] arr, int start, int end) {

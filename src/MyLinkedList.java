@@ -178,4 +178,13 @@ public class MyLinkedList<T> implements Mylist<T> {
             }
         } while (swapped);
     }
+
+    @Override
+    public void clear() {
+        // Set head and tail to null, effectively removing all nodes
+        head = null;
+        tail = null;
+        // Set size to 0
+        size = 0;
+    }
 }
