@@ -17,7 +17,7 @@ public class Main {
         linkedList.add(45);
         linkedList.add(78);
         linkedList.add(98);
-        linkedList.remove(45);
+        System.out.println(linkedList.indexOf(98));
         for(int i=0;i<linkedList.size();i++){
             System.out.print(linkedList.get(i)+" ");
         }
