@@ -7,7 +7,6 @@ public class Main {
         mc.add(85575);
         mc.add(74,5);
         System.out.println(mc.size());
-        mc.clear();
         if(mc.contains(48)) System.out.println("lksd");
         for (int i = 0; i < mc.size(); i++) {
             System.out.print(mc.get(i) + " ");
@@ -22,7 +21,7 @@ public class Main {
         System.out.println(linkedList.indexOf(98));
         System.out.println(linkedList.lastIndexOf(15));
         linkedList.sort();
-        linkedList.clear();
+
         for(int i=0;i<linkedList.size();i++){
             System.out.print(linkedList.get(i)+" ");
         }

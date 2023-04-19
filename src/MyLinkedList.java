@@ -3,6 +3,68 @@ public class MyLinkedList<T> implements Mylist<T> {
     private MyNode head;
     private MyNode tail;
 
+    /*
+    int size()
+    @return the number of elements in this list.
+
+    boolean contains(Object o)
+    Returns true if this list contains the specified element.
+    @parameters:
+    o - element whose presence in this list is to be tested.
+
+    T get(int index)
+    Returns the element at the specified position in this list.
+    Parameters:
+    index - index of the element to return.
+    @return:
+    the element at the specified position in this list.
+
+    void add(Object item)
+    Appends the specified element to the end of this list.
+    @parameters:
+    item - element to be appended to this list.
+
+    void add(Object item, int index)
+    Inserts the specified element at the specified position in this list.
+    @parameters:
+    item - element to be inserted.
+    index - index at which the specified element is to be inserted.
+
+    boolean remove(Object item)
+    Removes the first occurrence of the specified element from this list, if it is present.
+    @parameters:
+    item - element to be removed from this list, if present.
+    @return:
+    true if this list contained the specified element, false otherwise.
+
+    T remove2(int index)
+    Removes the element at the specified position in this list and returns the removed element.
+    @parameters:
+    index - the index of the element to be removed.
+    @return:
+    the removed element.
+
+    int indexOf(Object o)
+    Returns the index of the first occurrence of the specified element in this list, or -1 if this list does not contain the element.
+    @parameters:
+    o - element to search for.
+    @return:
+    the index of the first occurrence of the specified element in this list, or -1 if this list does not contain the element.
+
+    int lastIndexOf(Object o)
+    Returns the index of the last occurrence of the specified element in this list, or -1 if this list does not contain the element.
+    @parameters:
+    o - element to search for.
+    @return:
+    the index of the last occurrence of the specified element in this list, or -1 if this list does not contain the element.
+
+    void sort()
+    Sorts this list according to the natural order of the elements.
+    Note: This method assumes that all elements in the list implement the Comparable interface.
+
+    void clear()
+    Removes all of the elements from this list.
+    */
     public class MyNode {
         MyNode next;
         MyNode prev;
@@ -34,8 +96,8 @@ public class MyLinkedList<T> implements Mylist<T> {
 
     @Override
     public T get(int index) {
-        checkIndex(index);
-        if (index < size / 2) {
+        checkIndex(index);//checking indexes
+        if (index < size / 2) {//perfomance divide for big lists
             MyNode curr = head;
             for (int i = 0; i < index; i++) {
                 curr = curr.next;
@@ -51,7 +113,7 @@ public class MyLinkedList<T> implements Mylist<T> {
     }
 
     private void checkIndex(int index) {
-        if (index < 0 || index >= size) {
+        if (index < 0 || index >= size) {//checker
             throw new IndexOutOfBoundsException();
         }
     }
@@ -59,7 +121,7 @@ public class MyLinkedList<T> implements Mylist<T> {
     @Override
     public void add(Object item) {
         MyNode newNode = new MyNode((T) item);
-        if (size == 0) {
+        if (size == 0) {//empty list
             head = newNode;
             tail = newNode;
         } else {
@@ -74,15 +136,15 @@ public class MyLinkedList<T> implements Mylist<T> {
     public void add(Object item, int index) {
         MyNode newNode = new MyNode((T) item);
         if (size == 0) {
-            if (head == null) {
+            if (head == null) {//empty list
                 add(item);
                 return;
             }
-        } else if (index == 0) {
+        } else if (index == 0) {//begining of list
             newNode.next = head;
             head.prev = newNode;
             head = newNode;
-        } else {
+        } else {//for middlie of head to tail
             MyNode current = head;
             for (int i = 0; i < index; i++) {
                 current = current.next;
@@ -123,7 +185,7 @@ public class MyLinkedList<T> implements Mylist<T> {
     }
 
     @Override
-    public T remove2(int index) {
+    public T removed(int index) {//remove ->removed -confuse when using integers
         T temp = get(index);
         remove(get(index));
         return temp;

@@ -133,12 +133,12 @@ public class MyArrayList<T> implements Mylist<T> {
 
     @Override
     public boolean remove(T item) {
-        remove2(indexOf(item));
+        removed(indexOf(item));
         return true;
     }
 
     @Override
-    public T remove2(int index) {
+    public T removed(int index) {
         checkIndex(index);
         T temp = arr[0];
         T[] newArr = (T[]) new Object[arr.length];
