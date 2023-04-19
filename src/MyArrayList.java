@@ -2,10 +2,80 @@ public class MyArrayList<T> implements Mylist<T> {
     private T[] arr;
     private int size;
 
+    /*public int size()
+    Returns the number of elements in this list.
+
+    public boolean contains(Object o)
+    Returns true if this list contains the specified element.
+    @parameter:
+    o: the element to search for in this list
+
+    public void add(T item)
+    Appends the specified element to the end of this list.
+    @parameter:
+    item: the element to be added to this list
+
+    public void add(T item, int index)
+    Inserts the specified element at the specified position in this list.
+    @parameter:
+    item: the element to be inserted into this list
+    index: the index at which the specified element is to be inserted
+    Throws:
+    IndexOutOfBoundsException: if the index is out of range (index < 0 || index > size())
+
+    public T get(int index)
+    Returns the element at the specified position in this list.
+    @parameter:
+    index: the index of the element to be returned
+    Throws:
+    IndexOutOfBoundsException: if the index is out of range (index < 0 || index >= size())
+    @return:
+    the element at the specified position in this list
+
+    public boolean remove(T item)
+    Removes the first occurrence of the specified element from this list, if it is present.
+    @parameter:
+    item: the element to be removed from this list
+    @return:
+    true if this list contained the specified element, false otherwise
+
+    public T remove2(int index)
+    Removes the element at the specified position in this list.
+    @parameter:
+    index: the index of the element to be removed
+    Throws:
+    IndexOutOfBoundsException: if the index is out of range (index < 0 || index >= size())
+    @return:
+    the element that was removed from the list
+
+    public int indexOf(Object o)
+    Returns the index of the first occurrence of the specified element in this list, or -1 if this list does not contain the element.
+    @parameter:
+    o: the element to search for in this list
+    @return:
+    the index of the first occurrence of the specified element in this list, or -1 if this list does not contain the element
+
+    public int lastIndexOf(Object o)
+    Returns the index of the last occurrence of the specified element in this list, or -1 if this list does not contain the element.
+    @parameter:
+    o: the element to search for in this list
+    @return:
+    the index of the last occurrence of the specified element in this list, or -1 if this list does not contain the element
+
+    public void sort()
+    Sorts the elements in this list in ascending order.
+    Throws:
+    ClassCastException: if the elements are not mutually comparable
+
+    public void clear()
+    Removes all of the elements from this list.
+
+    */
     MyArrayList(T[] arr) {
         this.arr = arr;
         this.size = arr.length;
     }
+
     @Override
     public int size() {
         return size;
@@ -22,7 +92,7 @@ public class MyArrayList<T> implements Mylist<T> {
     }
 
     public void add(T item) {
-        if (size==arr.length) {
+        if (size == arr.length) {
             arrayMakeBigger();
         }
         arr[size++] = item;
@@ -31,13 +101,14 @@ public class MyArrayList<T> implements Mylist<T> {
     @Override
     public void add(T item, int index) {
         checkIndex(index);
-        if (size==arr.length) {
+        if (size == arr.length) {
             arrayMakeBigger();
         }
         for (int i = size; i >= index; i--) {
             arr[i + 1] = arr[i];
         }
-        arr[index] = item;size++;
+        arr[index] = item;
+        size++;
 
     }
 
@@ -46,8 +117,9 @@ public class MyArrayList<T> implements Mylist<T> {
         for (int i = 0; i < arr.length; i++) {
             arr2[i] = (T) arr[i];
         }
-        arr=arr2;
+        arr = arr2;
     }
+
     public T get(int index) {
         checkIndex(index);
         return arr[index];
@@ -64,23 +136,25 @@ public class MyArrayList<T> implements Mylist<T> {
         remove2(indexOf(item));
         return true;
     }
+
     @Override
     public T remove2(int index) {
         checkIndex(index);
-        T temp=arr[0];
+        T temp = arr[0];
         T[] newArr = (T[]) new Object[arr.length];
         int j = 0;
         for (int i = 0; i < arr.length; i++) {
             if (i == index) {
-                temp=arr[index];
+                temp = arr[index];
                 continue;
             }
             newArr[j] = arr[i];
             j++;
         }
-        for(int i=0;i<size;i++){
-            arr[i]=newArr[i];
-        }size--;
+        for (int i = 0; i < size; i++) {
+            arr[i] = newArr[i];
+        }
+        size--;
         return temp;
     }
 
@@ -133,7 +207,7 @@ public class MyArrayList<T> implements Mylist<T> {
     }
 
     @Override
-    public void clear(){
+    public void clear() {
         this.arr = (T[]) new Object[5];
         this.size = 0;
     }
