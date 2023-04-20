@@ -11,6 +11,7 @@ public class MyLinkedList<T> implements Mylist<T> {
     Returns true if this list contains the specified element.
     @parameters:
     o - element whose presence in this list is to be tested.
+    @return:true or false
 
     T get(int index)
     Returns the element at the specified position in this list.
@@ -37,7 +38,7 @@ public class MyLinkedList<T> implements Mylist<T> {
     @return:
     true if this list contained the specified element, false otherwise.
 
-    T remove2(int index)
+    T removed(int index)
     Removes the element at the specified position in this list and returns the removed element.
     @parameters:
     index - the index of the element to be removed.
@@ -65,7 +66,7 @@ public class MyLinkedList<T> implements Mylist<T> {
     void clear()
     Removes all of the elements from this list.
     */
-    public class MyNode {
+    private class MyNode {
         MyNode next;
         MyNode prev;
         T data;
@@ -119,7 +120,7 @@ public class MyLinkedList<T> implements Mylist<T> {
     }
 
     @Override
-    public void add(Object item) {
+    public void add(T item) {
         MyNode newNode = new MyNode((T) item);
         if (size == 0) {//empty list
             head = newNode;
@@ -133,8 +134,8 @@ public class MyLinkedList<T> implements Mylist<T> {
     }
 
     @Override
-    public void add(Object item, int index) {
-        MyNode newNode = new MyNode((T) item);
+    public void add(T item, int index) {
+        MyNode newNode = new MyNode( item);
         if (size == 0) {
             if (head == null) {//empty list
                 add(item);

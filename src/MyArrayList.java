@@ -39,7 +39,7 @@ public class MyArrayList<T> implements Mylist<T> {
     @return:
     true if this list contained the specified element, false otherwise
 
-    public T remove2(int index)
+    public T removed(int index)
     Removes the element at the specified position in this list.
     @parameter:
     index: the index of the element to be removed
