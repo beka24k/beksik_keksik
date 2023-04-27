@@ -2,7 +2,7 @@ import java.util.EmptyStackException;
 
 public class MyArrayListStack<T>  {
 
-    MyArrayList arr;
+    private MyArrayList arr;
 
     public MyArrayListStack() {
         arr = new MyArrayList<T>();
