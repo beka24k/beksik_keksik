@@ -11,6 +11,10 @@ public class MyArrayListStack<T>  {
     public void push(T item) {
         arr.add(item, 0);
     }
+    public T pop() {
+        return (T) arr.removed(0);
+
+    }
 
 
 }
