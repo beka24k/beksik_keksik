@@ -34,3 +34,51 @@ __clear()__: Removes all elements from the list. The list will be empty after th
 
 ## *Note*: 
 __T__ is a generic type parameter that represents the type of elements stored in the list. When creating an instance of MyList, you should specify the type of elements that the list will contain. For example, MyList<String> myList = new MyArrayList<>(); creates a new instance of MyArrayList that can hold string elements.
+## Assigment 3
+# MyArrayListStack and MyLinkedListQueue
+This project includes two different Java implementations of a stack and a queue, using the ArrayList and LinkedList data structures.
+
+## MyArrayListStack
+The MyArrayListStack class is an implementation of a stack using the ArrayList data structure. The class includes the following methods:
+
+*push(E element)*: Adds the specified element to the top of the stack.
+*pop()*: Removes and returns the top element of the stack.
+*peek()*: Returns the top element of the stack without removing it.
+*isEmpty()*: Returns true if the stack is empty or false if it is not.
+*size()*: Returns the number of elements in the stack.
+## MyLinkedListQueue
+The MyLinkedListQueue class is an implementation of a queue using the LinkedList data structure. The class includes the following methods:
+
+__enqueue(E element)__: Adds the specified element to the back of the queue.
+__dequeue()__: Removes and returns the front element of the queue.
+__peek()__: Returns the front element of the queue without removing it.
+isEmpty(): Returns true if the queue is empty or false if it is not.
+size(): Returns the number of elements in the queue.
+## __Usage__
+To use MyArrayListStack, create an instance of the class and call its methods as needed:
+
+java
+```ruby
+Copy code
+MyArrayListStack<Integer> stack = new MyArrayListStack<Integer>();
+stack.push(1);
+stack.push(2);
+System.out.println(stack.peek()); // should print 2
+System.out.println(stack.pop()); // should print 2
+System.out.println(stack.pop()); // should print 1
+System.out.println(stack.isEmpty()); // should print true
+System.out.println(stack.size()); // should print 0
+To use MyLinkedListQueue, create an instance of the class and call its methods as needed:
+```
+java
+```ruby
+Copy code
+MyLinkedListQueue<Integer> queue = new MyLinkedListQueue<Integer>();
+queue.enqueue(1);
+queue.enqueue(2);
+System.out.println(queue.peek()); // should print 1
+System.out.println(queue.dequeue()); // should print 1
+System.out.println(queue.dequeue()); // should print 2
+System.out.println(queue.isEmpty()); // should print true
+System.out.println(queue.size()); // should print 0
+```
