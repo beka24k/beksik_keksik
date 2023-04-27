@@ -15,6 +15,11 @@ public class Main {
         System.out.println(queue.dequeue()); // should print 2
         System.out.println(queue.isEmpty()); // should print true
         System.out.println(queue.size()); // should print 0
+        MyArrayListStack<Integer> stack = new MyArrayListStack<Integer>();
+        stack.push(1);
+        stack.push(2);
+
     }
+
 }
 
