@@ -5,7 +5,7 @@ public class MyArrayListStack<T>  {
     MyArrayList arr;
 
     public MyArrayListStack() {
-        arr = new MyArrayList();
+        arr = new MyArrayList<T>();
     }
 
     public void push(T item) {
@@ -19,6 +19,11 @@ public class MyArrayListStack<T>  {
 
     public T peek() {
         return (T) arr.get(0);
+    }
+
+    public boolean isEmpty() {
+        if (arr.size() == 0) return true;
+        return false;
     }
 
 
