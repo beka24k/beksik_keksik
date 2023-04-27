@@ -10,7 +10,7 @@ The ArrayList class has a regular array inside it. When an element is added, it 
 
 __How the LinkedList works__
 The LinkedList stores its items in "containers." The list has a link to the first container and each container has a link to the next container in the list. To add an element to the list, the element is placed into a new container and that container is linked to one of the other containers in the list.
-  __size()__: Returns the number of elements in the list.
+  __size()__: Returns the number of elements in the list. g
 
 __contains(Object o)__: Returns true if the list contains the specified element, false otherwise.
 
