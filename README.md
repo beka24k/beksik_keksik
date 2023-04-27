@@ -1,4 +1,5 @@
 # Assignment_2
+![image](https://user-images.githubusercontent.com/110625229/234842295-caa8d23d-ae22-4978-9826-fe0353c7b9cd.png)
 # **Description**
 Welcome aboard, fellow developer. This is where you can find interesting methods (used *Laboratory 1* from the best senior lecturer) using recursion and functions which you are free to use
 ## **MyArrayList & MyLinkedList**
@@ -62,7 +63,7 @@ __peek()__: Returns the front element of the queue without removing it.
   
 __isEmpty()__: Returns true if the queue is empty or false if it is not.
   
-size(): Returns the number of elements in the queue.
+__size()__: Returns the number of elements in the queue.
   
 ## __Usage__
 To use MyArrayListStack, create an instance of the class and call its methods as needed:
