@@ -11,6 +11,8 @@ public class Main {
         queue.enqueue(1);
         queue.enqueue(2);
         System.out.println(queue.peek()); // should print 1
+        System.out.println(queue.dequeue()); // should print 1
+        System.out.println(queue.dequeue()); // should print 2
 
     }
 }
