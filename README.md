@@ -55,10 +55,15 @@ The MyArrayListStack class is an implementation of a stack using the ArrayList d
 The MyLinkedListQueue class is an implementation of a queue using the LinkedList data structure. The class includes the following methods:
 
 __enqueue(E element)__: Adds the specified element to the back of the queue.
+  
 __dequeue()__: Removes and returns the front element of the queue.
+  
 __peek()__: Returns the front element of the queue without removing it.
+  
 isEmpty(): Returns true if the queue is empty or false if it is not.
+  
 size(): Returns the number of elements in the queue.
+  
 ## __Usage__
 To use MyArrayListStack, create an instance of the class and call its methods as needed:
 
