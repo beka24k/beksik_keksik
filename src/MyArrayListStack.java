@@ -17,4 +17,10 @@ public class MyArrayListStack<T>  {
     }
 
 
+    public T peek() {
+        return (T) arr.get(0);
+    }
+
+
+
 }
