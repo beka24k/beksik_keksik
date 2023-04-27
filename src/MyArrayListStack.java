@@ -26,6 +26,8 @@ public class MyArrayListStack<T>  {
         return false;
     }
 
-
+    public int getSize() {
+        return arr.size();
+    }
 
 }
