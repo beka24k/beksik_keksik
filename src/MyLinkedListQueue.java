@@ -18,5 +18,12 @@ public class MyLinkedListQueue<T> {
         return list.removed(0);
     }
 
+
+
+    public boolean isEmpty() {
+        if (list.size() == 0) return true;
+        return false;
+    }
+
 }
 
