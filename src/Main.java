@@ -13,7 +13,8 @@ public class Main {
         System.out.println(queue.peek()); // should print 1
         System.out.println(queue.dequeue()); // should print 1
         System.out.println(queue.dequeue()); // should print 2
-
+        System.out.println(queue.isEmpty()); // should print true
+        System.out.println(queue.size()); // should print 0
     }
 }
 
