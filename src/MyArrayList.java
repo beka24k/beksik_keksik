@@ -211,6 +211,31 @@ public class MyArrayList<T> implements Mylist<T> {
         this.arr = (T[]) new Object[5];
         this.size = 0;
     }
+    public T[] subList(int first,int last){
+        T[] arrTemp = (T[]) new Object[size-(first+last)-2];
+        checkIndex(first);
+        checkIndex(last);
+        for(int i=first;i<last;i++){
+            arrTemp[i]=(T)arr[i];
+        }
+        sortTemp(arrTemp);
+        return arrTemp;
+
+    }
+
+    public void sortTemp(T[] arr2){
+
+        for(int i=0;i<arr2.length;i++){
+            for (int j=0;j<=i;j++){
+                if(((Comparable<T>) arr2[i]).compareTo(arr2[j])<0){
+                    T temp=null;
+                    temp=arr2[i];
+                    arr2[i]=arr2[j];
+                    arr2[j]=temp;
+                }
+            }
+        }
+    }
 
     private static void mergeSort(int[] arr, int start, int end) {
         if (start < end) {

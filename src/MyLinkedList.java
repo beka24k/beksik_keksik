@@ -1,3 +1,6 @@
+import java.util.Collection;
+import java.util.NoSuchElementException;
+
 public class MyLinkedList<T> implements Mylist<T> {
     private int size = 0;
     private MyNode head;
@@ -135,7 +138,7 @@ public class MyLinkedList<T> implements Mylist<T> {
 
     @Override
     public void add(T item, int index) {
-        MyNode newNode = new MyNode( item);
+        MyNode newNode = new MyNode(item);
         if (size == 0) {
             if (head == null) {//empty list
                 add(item);
@@ -205,6 +208,19 @@ public class MyLinkedList<T> implements Mylist<T> {
         return -1;
     }
 
+    public void deleteDupli() {
+        sort();
+        MyNode curr = head;
+        while (curr != null && curr.next != null) {
+            if (curr.data.equals(curr.next.data)) {
+                curr.next = curr.next.next;
+                size--;
+            } else {
+                curr = curr.next;
+            }
+        }
+    }
+
     @Override
     public int lastIndexOf(Object o) {
         MyNode cur = tail;
@@ -219,7 +235,12 @@ public class MyLinkedList<T> implements Mylist<T> {
         System.err.println("That object dont exist");
         return -1;
     }
+    public void sortSubList(int first,int last){
+        MyNode curr;
+        for(int i =0;i<size;i++){
 
+        }
+    }
     @Override
     public void sort() {
         if (size <= 1) {
@@ -250,4 +271,117 @@ public class MyLinkedList<T> implements Mylist<T> {
         // Set size to 0
         size = 0;
     }
+
+    public void addFirst(T item) {
+        MyNode curr = new MyNode(item);
+        if (head == null) {
+            head = curr;
+            tail = curr;
+        } else {
+            curr.next = head;
+            head.prev = curr;
+            head = curr;
+        }
+        size++;
+    }
+
+    public void addLust(T item) {
+        MyNode curr = new MyNode(item);
+        if (head == null) {
+            tail = curr;
+            head = curr;
+        } else {
+            tail.next = curr;
+            curr.prev = tail;
+            tail = curr;
+        }
+        size++;
+    }
+
+    public T element() {
+        if (head == null) {
+            throw new NoSuchElementException("kajsdhkajsh");
+        } else {
+            size--;
+            return head.data;
+        }
+    }
+
+    public T poll() {
+        MyNode temp = null;
+        if (head == null) {
+            System.err.println("роллтон");
+        } else {
+            temp = head;
+            head = head.next;
+            head.prev = null;
+
+        }
+        size--;
+        return (T) temp.data;
+    }
+
+    public Object[] toArray() {
+        Object[] arr = new Object[size];
+        MyNode curr = head;
+        for (int i = 0; i < size; i++) {
+            arr[i] = curr.data;
+            curr = curr.next;
+        }
+        return arr;
+    }
+
+    public void reverse() {
+        if (head == null) {
+            return;
+        }
+
+        MyNode previous = null;
+        MyNode current = head;
+        MyNode next = null;
+
+        while (current != null) {
+            next = current.next;
+            current.next = previous;
+            previous = current;
+            current = next;
+        }
+
+        head = previous;
+    }
+
+    public void rotate(int k) {
+        if (head == null || k == 0) {
+            return;
+        }
+
+        int length = 1;
+        MyNode tail = head;
+        while (tail.next != null) {
+            tail = tail.next;
+            length++;
+        }
+
+        k %= length;
+        if (k == 0) {
+            return;
+        }
+
+        MyNode newTail = head;
+        for (int i = 1; i < length - k; i++) {
+            newTail = newTail.next;
+        }
+
+        MyNode newHead = newTail.next;
+        newTail.next = null;
+        tail.next = head;
+        head = newHead;
+    }
+
+    public void addAll(Collection<? extends T> c) {
+        for(T e:c){
+            add((T) e);
+        }
+    }
+
 }
