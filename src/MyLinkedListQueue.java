@@ -7,5 +7,10 @@ public class MyLinkedListQueue<T> {
         list = new MyLinkedList<T>();
     }
 
+    public void enqueue(T item) {
+        list.add(item, list.size() - 1);
+    }
+
+
     }
 
