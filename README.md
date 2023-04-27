@@ -1,5 +1,5 @@
 # Assignment_2
-### ![image](https://user-images.githubusercontent.com/110625229/234842295-caa8d23d-ae22-4978-9826-fe0353c7b9cd.png)
+![image](https://user-images.githubusercontent.com/110625229/234843749-605c9e0b-d11b-4691-967c-4c938f7ffe66.png)
 # **Description**
 Welcome aboard, fellow developer. This is where you can find interesting methods (used *Laboratory 1* from the best senior lecturer) using recursion and functions which you are free to use
 ## **MyArrayList & MyLinkedList**
