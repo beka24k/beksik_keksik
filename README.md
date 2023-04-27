@@ -60,7 +60,7 @@ __dequeue()__: Removes and returns the front element of the queue.
   
 __peek()__: Returns the front element of the queue without removing it.
   
-isEmpty(): Returns true if the queue is empty or false if it is not.
+__isEmpty()__: Returns true if the queue is empty or false if it is not.
   
 size(): Returns the number of elements in the queue.
   
