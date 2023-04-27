@@ -41,15 +41,15 @@ This project includes two different Java implementations of a stack and a queue,
 ## MyArrayListStack
 The MyArrayListStack class is an implementation of a stack using the ArrayList data structure. The class includes the following methods:
 
-*push(E element)*: Adds the specified element to the top of the stack.
+__push(E element)__: Adds the specified element to the top of the stack.
   
-*pop()*: Removes and returns the top element of the stack.
+__pop()__: Removes and returns the top element of the stack.
   
-*peek()*: Returns the top element of the stack without removing it.
+__peek()__: Returns the top element of the stack without removing it.
   
-*isEmpty()*: Returns true if the stack is empty or false if it is not.
+__isEmpty()__: Returns true if the stack is empty or false if it is not.
   
-*size()*: Returns the number of elements in the stack.
+__size()__: Returns the number of elements in the stack.
   
 ## MyLinkedListQueue
 The MyLinkedListQueue class is an implementation of a queue using the LinkedList data structure. The class includes the following methods:
