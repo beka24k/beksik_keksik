@@ -11,6 +11,12 @@ public class MyLinkedListQueue<T> {
         list.add(item, list.size() - 1);
     }
 
-
+    public T dequeue() {
+        if (isEmpty()) {
+            throw new NoSuchElementException();
+        }
+        return list.removed(0);
     }
+
+}
 
