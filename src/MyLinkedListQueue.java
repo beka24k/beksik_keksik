@@ -1,36 +1,71 @@
 import java.util.NoSuchElementException;
 
-public class MyLinkedListQueue<T> {
-    private MyLinkedList<T> list;
+public class MyLinkedListQueue<E> {
+    // Fields
+    private MyLinkedList<E> queue;
 
+    // Constructors
+
+    /**
+     * Constructs a new empty queue using a LinkedList.
+     */
     public MyLinkedListQueue() {
-        list = new MyLinkedList<T>();
+        queue = new MyLinkedList<>();
     }
 
-    public void enqueue(T item) {
-        list.add(item, list.size() - 1);
+    // Methods
+
+    /**
+     * Adds the specified element to the back of the queue.
+     *
+     * @param element the element to be added to the queue.
+     */
+    public void enqueue(E element) {
+        queue.add(element,size()-1);
     }
 
-    public T dequeue() {
+    /**
+     * Removes and returns the front element of the queue.
+     *
+     * @return the front element of the queue.
+     * @throws NoSuchElementException if the queue is empty.
+     */
+    public E dequeue() {
         if (isEmpty()) {
             throw new NoSuchElementException();
         }
-        return list.removed(0);
+        return queue.removed(0);
     }
 
-    public T peek() {
+    /**
+     * Returns the front element of the queue without removing it.
+     *
+     * @return the front element of the queue.
+     * @throws NoSuchElementException if the queue is empty.
+     */
+    public E peek() {
         if (isEmpty()) {
             throw new NoSuchElementException();
         }
-        return list.get(0);
+        return queue.get(0);
     }
 
+    /**
+     * Returns true if the queue is empty, false otherwise.
+     *
+     * @return true if the queue is empty, false otherwise.
+     */
     public boolean isEmpty() {
-        if (list.size() == 0) return true;
+        if (queue.size() == 0) return true;
         return false;
     }
+
+    /**
+     * Returns the number of elements in the queue.
+     *
+     * @return the number of elements in the queue.
+     */
     public int size() {
-        return list.size();
+        return queue.size();
     }
 }
-
