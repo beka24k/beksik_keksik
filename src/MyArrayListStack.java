@@ -35,7 +35,7 @@ public class MyArrayListStack<E> {
             throw new EmptyStackException();
         }
         return stack.removed(stack.size() - 1);
-    }
+     }
 
     /**
      * Returns the top element of the stack without removing it.

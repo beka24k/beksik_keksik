@@ -13,7 +13,7 @@ public class MyLinkedListQueue<E> {
         queue = new MyLinkedList<>();
     }
 
-    // Methods
+     // Methods
 
     /**
      * Adds the specified element to the back of the queue.
